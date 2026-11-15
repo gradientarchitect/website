@@ -1,0 +1,12 @@
+---
+import { type Post, formatDate, readingTime } from '../lib/posts';
+interface Props { post: Post }
+const { post } = Astro.props;
+const { title, description, topic, date, draft } = post.data;
+---
+<a class="card" href={`/blog/${post.id}`}>
+  <span class="eyebrow topic">{topic}</span>
+  <span class="title">{title}</span>
+  <span class="summary">{description}</span>
+  <span class="caption">{draft ? 'Draft' : `${formatDate(date)} · ${readingTime(post.body)}`}</span>
+</a>

@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+---
+<Base title="About" description="Sadhiq is a solution architect working on Quote-to-Cash, Revenue Cloud and AI agents.">
+  <div class="page-head" slot="hero">
+    <span class="eyebrow">About</span>
+    <h1>Sadhiq, solution architect</h1>
+    <p>{site.headline}</p>
+  </div>
+  <div class="prose about">
+    <p>I design Quote-to-Cash systems: how a quote is priced and approved, becomes an order, gets invoiced and turns into cash. I have spent 15+ years on Salesforce, most of it on Industries CPQ, Revenue Cloud, billing and the ERP integrations that close the loop.</p>
+    <p>Now I am adding Google Cloud and agentic AI to that toolkit, and writing down every step here. The lab is where the ideas get built and tested.</p>
+    <h2>Why "Gradient"</h2>
+    <p>The name has three readings. Gradient descent is how AI models learn, in small measured steps. Pricing gradients are how tiers, volume breaks and discount approvals are built. And revenue should flow smoothly from quote to cash.</p>
+    <p>The mark makes the architect part literal: the A is a drafting compass, its needle set at the centre of the G it has just drawn.</p>
+    <h2>Get in touch</h2>
+    <p>Email <a href={`mailto:${site.email}`}>{site.email}</a>.</p>
+    <p class="caption">Views are my own.</p>
+  </div>
+</Base>
+<style>.about { padding-top: 64px; }</style>
