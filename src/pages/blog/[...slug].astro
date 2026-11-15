@@ -1,0 +1,37 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, readingTime, type Post } from '../../lib/posts';
+import { site } from '../../site.config';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props as { post: Post };
+const { Content } = await render(post);
+const { title, description, topic, date, draft } = post.data;
+---
+<Base title={title} description={description} type="article">
+  <article>
+    <header class="prose post-head">
+      <span class="eyebrow topic">{topic}</span>
+      <h1>{title}</h1>
+      <p class="dek">{description}</p>
+      <span class="caption byline">{site.author} · <time datetime={date.toISOString()}>{formatDate(date)}</time> · {readingTime(post.body)}{draft && ' · Draft'}</span>
+    </header>
+    <div class="prose"><Content /></div>
+    <footer class="prose post-foot">
+      <span>Views are my own.</span>
+      <a href="/blog">All posts</a>
+    </footer>
+  </article>
+</Base>
+<style>
+  .post-head { padding-top: 72px; display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px; }
+  .post-head h1 { font-weight: 800; font-size: clamp(34px, 4.6vw, 50px); line-height: 1.06; letter-spacing: -0.025em; }
+  .dek { margin: 0; font-size: 20px; line-height: 31px; color: var(--slate); }
+  .byline { font-size: 14px; }
+  .post-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 24px; margin-top: 16px; border-top: 1px solid var(--hairline); font-size: 14px; color: var(--slate); }
+  .post-foot a { font-weight: 600; }
+</style>

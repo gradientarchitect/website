@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getPosts } from '../../lib/posts';
+const posts = await getPosts();
+---
+<Base title="Blog" description="Notes on Quote-to-Cash architecture, Revenue Cloud, Google Cloud and AI agents.">
+  <div class="page-head" slot="hero">
+    <span class="eyebrow">Blog</span>
+    <h1>Notes from the drawing board</h1>
+    <p>Quote-to-Cash architecture, Revenue Cloud, Google Cloud and AI agents. The decisions, and why they were made.</p>
+  </div>
+  <section class="wrap list" aria-label="All posts">
+    {posts.length ? posts.map((p) => <PostCard post={p} />) : <p>The first post is on its way.</p>}
+  </section>
+</Base>
+<style>
+  .list { padding-top: 64px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 24px; }
+</style>

@@ -1,0 +1,21 @@
+---
+// The GA mark. "dark" = white G and amber A for navy grounds;
+// "light" = navy G and amber-ink A for paper. Never recolour the A.
+interface Props { variant?: 'dark' | 'light'; width?: number; title?: string }
+const { variant = 'dark', width = 54, title } = Astro.props;
+const g = variant === 'dark' ? '#FFFFFF' : '#0F2742';
+const a = variant === 'dark' ? '#E8A33D' : '#A35F00';
+const height = Math.round((width * 280) / 380);
+---
+<svg viewBox="60 100 380 280" width={width} height={height} role={title ? 'img' : undefined} aria-hidden={title ? undefined : 'true'} aria-label={title}>
+  <g fill="none" stroke={g} stroke-width="30" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M211 205.6 A72 72 0 1 0 196 348 A72 72 0 0 0 268 276 H226" />
+    <path d="M110 348 H196" stroke-linecap="butt" />
+  </g>
+  <g fill="none" stroke={a} stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M196 276 L322 132 L398 336" />
+    <path d="M268 194 H350" />
+  </g>
+  <circle cx="322" cy="126" r="16" fill={a} />
+  <circle cx="196" cy="276" r="10" fill={a} />
+</svg>

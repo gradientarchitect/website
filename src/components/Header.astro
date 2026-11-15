@@ -1,0 +1,25 @@
+---
+import Mark from './Mark.astro';
+import { site } from '../site.config';
+interface Props { grid?: boolean }
+const { grid = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/lab', label: 'Lab' },
+  { href: '/about', label: 'About' },
+];
+const current = (href: string) => (path === href || path.startsWith(href + '/') ? 'page' : undefined);
+---
+<header class:list={['site-header', 'navy', { grid }]}>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a href="/" class="brand"><Mark width={54} /><span>{site.name}</span></a>
+      <div class="nav-links">
+        {links.map((l) => <a href={l.href} aria-current={current(l.href)}>{l.label}</a>)}
+        <a class="btn btn-primary" href={`mailto:${site.email}`}>Get in touch</a>
+      </div>
+    </nav>
+    <slot />
+  </div>
+</header>

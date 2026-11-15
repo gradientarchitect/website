@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Lab" description="Working demos of Quote-to-Cash patterns with AI agents on Google Cloud.">
+  <div class="page-head" slot="hero">
+    <span class="eyebrow">Lab</span>
+    <h1>Working demos, not slideware</h1>
+    <p>Small, honest builds that test one Quote-to-Cash pattern at a time. Each one gets a write-up on the blog.</p>
+  </div>
+  <section class="wrap lab-list" aria-label="Projects">
+    <article class="card">
+      <span class="eyebrow topic">In progress · demo January 2027</span>
+      <h2 class="title">Quote approval agent</h2>
+      <p class="summary">An LLM agent that reads a quote, checks it against discount thresholds and margin rules, and recommends approve, reject or escalate, with its reasons. Built on Cloud Run with an LLM API. The demo will live at lab.gradientarchitect.com.</p>
+      <dl class="specs">
+        <div><dt>Stack</dt><dd>Cloud Run · LLM API</dd></div>
+        <div><dt>Domain</dt><dd>Quote-to-Cash</dd></div>
+        <div><dt>Status</dt><dd>Design</dd></div>
+      </dl>
+    </article>
+  </section>
+</Base>
+<style>
+  .lab-list { padding-top: 64px; max-width: 840px; margin-inline: 0; }
+  .lab-list .summary { margin: 0; font-size: 17px; line-height: 28px; }
+  .specs { margin: 8px 0 0; display: grid; gap: 8px; font-family: var(--font-mono); font-size: 14px; line-height: 20px; }
+  .specs div { display: flex; justify-content: space-between; gap: 12px; padding-top: 8px; border-top: 1px solid var(--hairline); }
+  .specs dt { color: var(--slate); }
+  .specs dd { margin: 0; }
+  h2.title { margin: 0; }
+</style>

@@ -1,0 +1,14 @@
+---
+import { site } from '../site.config';
+const labels: Record<string, string> = { github: 'GitHub', linkedin: 'LinkedIn', huggingface: 'Hugging Face', bluesky: 'Bluesky' };
+const links = Object.entries(site.social).filter(([, url]) => url) as [string, string][];
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <span>gradientarchitect.com · Views are my own.</span>
+    <ul>
+      {links.map(([key, url]) => <li><a href={url} rel="me noopener">{labels[key]}</a></li>)}
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
+  </div>
+</footer>
