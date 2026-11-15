@@ -3,6 +3,7 @@ title: Setting up my own GCP organization with Cloud Identity
 description: A personal Gmail account can't own an organization. Here is how a ten-dollar domain and free Cloud Identity fixed that.
 topic: Google Cloud · ACE journey
 date: 2026-11-12
+draft: true
 ---
 
 My Google Cloud console has always said *No organization* at the top of the resource tree. That's fine for running labs, but it means no folders, no organization policies and no way to practise the hierarchy the Associate Cloud Engineer exam keeps asking about.

@@ -60,9 +60,13 @@ const certs = [
       <h2 id="latest">Latest writing</h2>
       <a href="/blog">All posts</a>
     </div>
-    <div class="cards">
-      {posts.map((p) => <PostCard post={p} />)}
-    </div>
+    {posts.length ? (
+      <div class="cards">
+        {posts.map((p) => <PostCard post={p} />)}
+      </div>
+    ) : (
+      <p class="empty">The first posts are on the drawing board: setting up a GCP organization, and turning pricing gradients into an approval agent's rules. Follow along with <a href="/rss.xml">RSS</a>.</p>
+    )}
   </section>
 
   <section class="wrap" aria-labelledby="lab-title">
@@ -115,6 +119,7 @@ const certs = [
   .section-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 32px; }
   .section-head h2 { font-size: 34px; line-height: 40px; letter-spacing: -0.015em; }
   .section-head a { font-weight: 600; font-size: 15px; }
+  .empty { margin: 0; max-width: 640px; color: var(--slate); }
   .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 24px; }
 
   .lab { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; padding: clamp(24px, 4vw, 48px); border-radius: var(--radius-md); background-size: 24px 24px; }

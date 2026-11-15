@@ -7,7 +7,7 @@ export const site = {
   headline: 'Quote-to-Cash Architecture · AI Agents · Enterprise Platforms',
   description:
     'Sadhiq writes about Quote-to-Cash architecture, Revenue Cloud, Google Cloud and AI agents. Views are my own.',
-  email: 'sadhiq.mohammad@gradientarchitect.com',
+  email: 'support@gradientarchitect.com',
   social: {
     github: 'https://github.com/gradientarchitect',
     linkedin: null as string | null,
